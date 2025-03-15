@@ -1,16 +1,13 @@
-# springboot_template
+# Meal_Prep
 
 ## About
 
-SpringBoot template that I've created that contains a standard file structure. 
+Using my SpringBoot template this is an app intended to help you prepare your weekly meals. 
 
-It contains one class (as well as its services loosely coupled) currently named student.
-
-Standard API methods have been impleneted for the class above:
-  - GET
-  - POST
-  - PUT
-  - DELETE
+Inteded Functionality:
+  - Recipe book
+  - Weekly meals planning
+  - Weekly shop list generator
 
 ## Technology Stack
 
