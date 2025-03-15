@@ -31,6 +31,13 @@ public class RecipeService {
         recipeRepository.save(recipe);
     }
 
+    public void addNewIngredient(Recipe recipe, String ingredient) {
+        Optional<Recipe> RecipeOptional = recipeRepository.findRecipeByRecipeName(recipe.getRecipeName());
+        if (RecipeOptional.isPresent()){
+            recipe.setRecipeIngredient(ingredient);
+        }
+    }
+
     //delete Recipe
     public void deleteRecipe(Long RecipeId) {
         boolean exists = recipeRepository.existsById(RecipeId);
@@ -54,5 +61,12 @@ public class RecipeService {
             recipe.setRecipeName(recipeName);
         }
 
+        if (recipeIngredients != null && recipeIngredients.length() > 0 && !Objects.equals(recipe.getRecipeIngredient(), recipeIngredients)) {
+            Optional<Recipe> studentOptional = recipeRepository
+                    .findRecipeByRecipeName(recipeName);
+            if (studentOptional.isPresent()) {
+                recipe.setRecipeIngredient(recipeIngredients);
+            }
+        }
     }
 }
