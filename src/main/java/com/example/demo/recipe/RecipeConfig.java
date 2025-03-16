@@ -17,7 +17,7 @@ public class RecipeConfig {
         return args -> {
             Recipe Adobo = new Recipe(
                     "Adobo",
-                    "Chicken,Garlic"
+                    "Chicken,Garlic,Soy Sauce"
             );
 
             Recipe Lumpia = new Recipe(
