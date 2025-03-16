@@ -4,6 +4,7 @@ import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -22,12 +23,24 @@ public class RecipeService {
         return recipeRepository.findAll(); //return list
     }
 
-    //get ingredients
+    //get ingredient just for one recipe
     public List<String> getIngredients(Long recipeId) {
         Recipe recipe = recipeRepository.findById(recipeId)
                 .orElseThrow(() -> new IllegalStateException("Recipe with name " + recipeId + " does not exist"));
 
         return List.of(recipe.getRecipeIngredient());
+    }
+
+    //get all ingredients for a given list of ID's
+    public List<String> getIngredientsAll(Long[] recipeIds) {
+        List<String> ingredients = new ArrayList<>();
+        for (Long recipeId : recipeIds) {
+            Optional<Recipe> recipe = recipeRepository.findById(recipeId);
+            if (recipe.isPresent()) {
+                ingredients.add(recipe.get().getRecipeIngredient());
+            }
+        }
+        return ingredients;
     }
 
     public void addNewRecipe(Recipe recipe) {
