@@ -23,6 +23,11 @@ public class RecipeController {
         return recipeService.getRecipes();
     }
 
+    @GetMapping("/getRecipe/{recipeId}")
+    public List<String> getIngredients(@PathVariable Long recipeId) {
+        return recipeService.getIngredients(recipeId);
+    }
+
     //Post is used when we want to add new resources to our system
     // in our case recipes
     @PostMapping()

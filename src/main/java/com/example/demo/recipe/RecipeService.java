@@ -22,6 +22,14 @@ public class RecipeService {
         return recipeRepository.findAll(); //return list
     }
 
+    //get ingredients
+    public List<String> getIngredients(Long recipeId) {
+        Recipe recipe = recipeRepository.findById(recipeId)
+                .orElseThrow(() -> new IllegalStateException("Recipe with name " + recipeId + " does not exist"));
+
+        return List.of(recipe.getRecipeIngredient());
+    }
+
     public void addNewRecipe(Recipe recipe) {
         Optional<Recipe> RecipeOptional = recipeRepository.
                 findRecipeByRecipeName(recipe.getRecipeName());
