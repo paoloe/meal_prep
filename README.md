@@ -17,7 +17,7 @@ This project is built using the following technologies:
 - **Backend:** Java, SpringBoot
 - **Database:** PostgreSQL, Spring Data JPA
 - **DevOps & Deployment:** Not yet implemented
-- **Other:** 
+- **Other: IntelliJ, VSCode** 
 
 ## SpringBoot Annotations Utilised
 
@@ -35,12 +35,13 @@ First one as this caused me grief...
 4. `@DeleteMapping`
 5. `@PatchMapping`
 
-As I have come to find out trying to implement a new method to get the ingredients
-for a given recipe. `@GetMapping` annotated methods is used to handle HTTP GET requests
-which can be paired with a given URI expression.
+As I have come to find out trying to implement a new method to 
+get the ingredients for a given recipe. `@GetMapping` 
+annotated methods is used to handle HTTP GET requests which can 
+be paired with a given URI expression.
 
-Initially, from the SpringBoot template we created the below which is automatically called
-if annotations are not added:
+Initially, from the SpringBoot template we created the 
+below which is automatically called if annotations are not added:
 
     @GetMapping()
         public List<Recipe> getrecipes() {
