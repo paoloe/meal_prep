@@ -75,7 +75,14 @@ finding by ID's but also to call our custom queries.
 ![img_1.png](img_1.png)
 
 ### @Repository
+`@Repository` annotation is used to indicate the class that 
+contains the mechanism for the data layer of the application. 
+In our case RecipeRepository contains our two database queries
+to access recipes and recipe ingredients. As we have come to know
+from the image above, it contains preset functionality to 
+retrieve, modify and delete data.
 
+![img_2.png](img_2.png)
 
 ### @Service
 
