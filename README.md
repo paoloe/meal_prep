@@ -55,6 +55,40 @@ functionality to the method we created to retrieve the ingredients for a given r
             return recipeService.getIngredients(recipeId); 
         }
 
+### @Autowired
+The feature of dependency injection allows for classes to be loosely
+coupled with each other. In our example below we did this in the
+RecipeController class loosely coupling it with the RecipeService
+class. Allowing for methods within the RecipeController to call
+an instance of RecipeService and call the methods within it without
+having to instantiate the class or provide any parameters
+
+![img.png](img.png)
+
+Again we're using dependency injection below in the RecipeService 
+class to loosely couple it with the RecipeRepository class
+in order to use its data access functionality. This is functionality
+that is standard to the data access class like saving changes,
+finding by ID's but also to call our custom queries.
+
+![img_1.png](img_1.png)
+
+### @Repository
+
+
+### @Service
+
+
+### @RestController
+
+
+### @Configuration
+
+
+### @Bean
+
+
+
 ## Installation
 
 Provide instructions on how to install and run the project locally.
