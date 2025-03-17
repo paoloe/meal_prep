@@ -85,7 +85,10 @@ retrieve, modify and delete data.
 ![img_2.png](img_2.png)
 
 ### @Service
-
+`@Service` is used to indicate the service layer of an application. The service 
+layer contains the business logic of the application. This annotation is a specialization 
+of the `@Component` annotation, meaning that classes annotated with `@Service` are automatically
+detected during the classpath scanning.
 
 ### @RestController
 
