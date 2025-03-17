@@ -17,7 +17,7 @@ This project is built using the following technologies:
 - **Backend:** Java, SpringBoot
 - **Database:** PostgreSQL, Spring Data JPA
 - **DevOps & Deployment:** Not yet implemented
-- **Other: IntelliJ, VSCode** 
+- **Other:** IntelliJ, VSCode 
 
 ## SpringBoot Annotations Utilised
 
