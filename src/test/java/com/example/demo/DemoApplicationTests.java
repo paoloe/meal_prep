@@ -12,16 +12,8 @@ import java.util.List;
 @SpringBootTest
 class DemoApplicationTests {
 
-	//reference to recipe service
-	private final RecipeService recipeService;
-
-    DemoApplicationTests(RecipeService recipeService) {
-        this.recipeService = recipeService;
-    }
-
     @Test
-	void contextLoads(){ //recipeId = [1,2,3]) {
-			//recipeService.getIngredientsAll(recipeId);
+	void contextLoads(){
 	}
 
 }
