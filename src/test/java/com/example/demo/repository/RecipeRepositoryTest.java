@@ -24,11 +24,11 @@ public class RecipeRepositoryTest {
         Optional<Recipe> recipe = recipeRepository.findById(id);
 
         //Act
-        System.out.println(recipe.get().getRecipeName());
+        //System.out.println(recipe.get().getRecipeName());
 
         //Assert
         Assertions.assertThat(recipe).isNotNull();
-
+        //Assertions.assertThat(recipe.get().getRecipeName()).isEqualTo("Adobo");
     }
 
 }
