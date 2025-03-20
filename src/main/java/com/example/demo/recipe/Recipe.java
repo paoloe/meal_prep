@@ -2,6 +2,9 @@ package com.example.demo.recipe;
 
 import jakarta.persistence.*;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 @Entity //this is for hibernate
 @Table
 public class Recipe {

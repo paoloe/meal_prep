@@ -4,10 +4,8 @@ import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 public class RecipeService {
@@ -31,16 +29,30 @@ public class RecipeService {
         return List.of(recipe.getRecipeIngredient());
     }
 
+
+//    [
+//        "Chicken,Garlic,Soy Sauce",
+//        "Chicken,Garlic,LumpiaWrapper"
+//    ]
+
     //get all ingredients for a given list of ID's
     public List<String> getIngredientsAll(Long[] recipeIds) {
         List<String> ingredients = new ArrayList<>();
+        List<String> ingredientsAll = new ArrayList<>();
+
         for (Long recipeId : recipeIds) {
             Optional<Recipe> recipe = recipeRepository.findById(recipeId);
             if (recipe.isPresent()) {
                 ingredients.add(recipe.get().getRecipeIngredient());
             }
         }
-        return ingredients;
+
+        //trying to split the contents of each recipe ingredients list...
+        for (String ingredient : ingredients) {
+            ingredientsAll= List.of(ingredient.split(","));
+        }
+
+        return ingredientsAll;
     }
 
     public void addNewRecipe(Recipe recipe) {
