@@ -14,7 +14,7 @@ Inteded Functionality:
 This project is built using the following technologies:
 
 - **Frontend:** Nothing implemented yet...
-- **Backend:** Java, SpringBoot
+- **Backend:** Java, SpringBoot, JUnit, Mockito
 - **Database:** PostgreSQL, Spring Data JPA
 - **DevOps & Deployment:** Not yet implemented
 - **Other:** IntelliJ, VSCode 
@@ -98,7 +98,13 @@ detected during the classpath scanning.
 
 ### @Bean
 
+## Unit Testing
 
+Started to implement unit testing at the moment only created a unit test class for our repository (data access layer) but able to successfully test and debug:
+![img_3.png](img_3.png) 
+
+Not entirely sure if this is how you're meant to test in that I had to create new instances of recipe by adding and populating our database with two recipes then 
+manipulating that. It works for now but can do further research on this.
 
 ## Installation
 
