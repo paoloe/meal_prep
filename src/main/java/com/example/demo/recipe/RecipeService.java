@@ -39,6 +39,7 @@ public class RecipeService {
     public List<String> getIngredientsAll(Long[] recipeIds) {
         List<String> ingredients = new ArrayList<>();
         List<String> ingredientsAll = new ArrayList<>();
+        List<String> ingredientsAllAll = new ArrayList<>();
 
         for (Long recipeId : recipeIds) {
             Optional<Recipe> recipe = recipeRepository.findById(recipeId);
@@ -49,10 +50,14 @@ public class RecipeService {
 
         //trying to split the contents of each recipe ingredients list...
         for (String ingredient : ingredients) {
-            ingredientsAll= List.of(ingredient.split(","));
+            //this will split all the ingredients into seperate items
+            ingredientsAll = List.of(ingredient.split(","));
+
+            //now loop through the above and put it into another list?
+            ingredientsAllAll.addAll(ingredientsAll);
         }
 
-        return ingredientsAll;
+        return ingredientsAllAll;
     }
 
     public void addNewRecipe(Recipe recipe) {
