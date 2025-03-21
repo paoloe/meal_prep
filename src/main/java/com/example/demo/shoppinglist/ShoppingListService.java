@@ -34,6 +34,10 @@ public class ShoppingListService {
         // we can loop through the items for now and just set the quantity as one for all items?
         for (String item : items) {
             shoppingLists.add(new ShoppingList(item,1));
+
+            //use our repository query to check if this item exists already?
+            //shoppingListRepository.findItemByName(item).ifPresent(shoppingLists::add);
+
         }
 
         return shoppingLists;
