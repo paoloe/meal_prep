@@ -30,11 +30,6 @@ public class RecipeService {
     }
 
 
-//    [
-//        "Chicken,Garlic,Soy Sauce",
-//        "Chicken,Garlic,LumpiaWrapper"
-//    ]
-
     //get all ingredients for a given list of ID's
     public List<String> getIngredientsAll(Long[] recipeIds) {
         List<String> ingredients = new ArrayList<>();
