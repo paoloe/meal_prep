@@ -33,10 +33,19 @@ public class ShoppingListService {
 
         // we can loop through the items for now and just set the quantity as one for all items?
         for (String item : items) {
-            shoppingLists.add(new ShoppingList(item,1));
 
-            //use our repository query to check if this item exists already?
-            //shoppingListRepository.findItemByName(item).ifPresent(shoppingLists::add);
+            //check if item is already present change qty
+            if (shoppingListRepository.findItemByName(item).isPresent()) {
+                // lets get the index so we can find it
+                int index = items.indexOf(item);
+
+                //get the index of this current item then +1 qty
+                shoppingLists.get(index).setQuantity(shoppingLists.get(index).getQuantity() + 1);
+            }
+            // if its not present then lets just add it to the list
+            else if (shoppingListRepository.findItemByName(item).isEmpty()) {
+                shoppingLists.add(new ShoppingList(item,1));
+            }
 
         }
 
