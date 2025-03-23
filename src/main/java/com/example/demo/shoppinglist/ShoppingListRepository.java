@@ -10,7 +10,7 @@ import java.util.Optional;
 public interface ShoppingListRepository
         extends JpaRepository<ShoppingList, Long> {
 
-    @Query("SELECT s FROM ShoppingList s WHERE s = ?1")
+    @Query("SELECT s FROM ShoppingList.item s WHERE s = ?1")
     Optional<ShoppingList> findItemByName(String itemName);
 
 }
