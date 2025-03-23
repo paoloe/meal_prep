@@ -33,26 +33,20 @@ public class ShoppingListService {
 
         // we can loop through the items for now and just set the quantity as one for all items?
         for (String item : items) {
-            shoppingLists.add(new ShoppingList(item, 1));
 
-//            shoppingListRepository.findItemByName(item).ifPresentOrElse(shoppingLists::add, () -> {
-//                shoppingLists.get(items.indexOf(item)).setQuantity(shoppingLists.get(items.indexOf(item)).getQuantity() + 1);
-//            });
+            //if we find this item in the table lets add to qty
+            if (shoppingListRepository.getByItemName(item).isPresent()) {
+                for (ShoppingList shoppingList : shoppingListRepository.findAll()) {
+                    if (shoppingList.getItem().equals(item)) {
+                        shoppingList.setQuantity(shoppingList.getQuantity() + 1);
+                    }
+                }
+            } else {
+                shoppingLists.add(new ShoppingList(item, 1));
+            }
 
-            //check if item is already present change qty
-//            if (shoppingLists.get(items.indexOf(item)).getQuantity() == 1) {
-//                shoppingLists.get(items.indexOf(item)).setQuantity(shoppingLists.get(items.indexOf(item)).getQuantity() + 1);
-//            }
-
-            // if its not present then lets just add it to the list
-//            if (shoppingListRepository.findItemByName(item).isEmpty()) {
-//                shoppingLists.add(new ShoppingList(item,1));
-//            }
-
-//            shoppingListRepository.findItemByName(item).ifPresentOrElse(shoppingLists::add, () -> {
-//                shoppingLists.get(items.indexOf(item)).setQuantity(shoppingLists.get(items.indexOf(item)).getQuantity() + 1);
-//            });
-
+            //append
+            shoppingListRepository.saveAll(shoppingLists);
         }
 
         return shoppingLists;
