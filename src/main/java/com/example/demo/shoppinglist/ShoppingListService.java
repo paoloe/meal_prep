@@ -39,16 +39,15 @@ public class ShoppingListService {
                 for (ShoppingList shoppingList : shoppingListRepository.findAll()) {
                     if (shoppingList.getItem().equals(item)) {
                         shoppingList.setQuantity(shoppingList.getQuantity() + 1);
+                        shoppingListRepository.save(shoppingList);
                     }
                 }
             } else {
                 shoppingLists.add(new ShoppingList(item, 1));
+                shoppingListRepository.save(shoppingLists.get(shoppingLists.size() - 1));
             }
-
-            //append
-            shoppingListRepository.saveAll(shoppingLists);
         }
 
-        return shoppingLists;
+        return shoppingListRepository.findAll();
     }
 }
