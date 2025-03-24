@@ -20,10 +20,6 @@ public class ShoppingListService {
         this.recipeService = recipeService;
     }
 
-    public List<ShoppingList> findAll() {
-        return shoppingListRepository.findAll();
-    }
-
     public List<ShoppingList> getShoppingList(Long[] recipeIds) {
         // this will be the list we return
         ArrayList<ShoppingList> shoppingLists = new ArrayList<>();
@@ -34,7 +30,7 @@ public class ShoppingListService {
         // we can loop through the items for now and just set the quantity as one for all items?
         for (String item : items) {
 
-            //if we find this item in the table lets add to qty
+            //use our repository select to check if item exists
             if (shoppingListRepository.getByItemName(item).isPresent()) {
                 for (ShoppingList shoppingList : shoppingListRepository.findAll()) {
                     if (shoppingList.getItem().equals(item)) {
@@ -42,7 +38,9 @@ public class ShoppingListService {
                         shoppingListRepository.save(shoppingList);
                     }
                 }
-            } else {
+            }
+            //else lets just add to the list as it doesn't exist
+            else {
                 shoppingLists.add(new ShoppingList(item, 1));
                 shoppingListRepository.save(shoppingLists.get(shoppingLists.size() - 1));
             }
