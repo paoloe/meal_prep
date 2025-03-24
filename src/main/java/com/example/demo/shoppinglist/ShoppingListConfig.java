@@ -13,7 +13,7 @@ public class ShoppingListConfig {
     CommandLineRunner commandLineRunner2(ShoppingListRepository repository) {
         return args -> {
             ShoppingList Potato = new ShoppingList(
-                    "Adobo",
+                    "Potato",
                     5
             );
 

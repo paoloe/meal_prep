@@ -16,8 +16,6 @@ public class RecipeRepositoryTest {
     @Autowired
     private RecipeRepository recipeRepository;
 
-    private long id = 1;
-
     @Test
     public void RecipeRepository_GetRecipe_findRecipeByRecipeName() {
             //Arrange: what do we need to get to perform the test? - Populate recipe
