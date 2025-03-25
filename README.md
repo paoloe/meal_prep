@@ -91,7 +91,15 @@ of the `@Component` annotation, meaning that classes annotated with `@Service` a
 detected during the classpath scanning.
 
 ### @RestController
+`@RestController` is a specialized version of `@Controller` which just allows the auto-detection of implementation classes,
+`@Controller` is normally paired with `@ResponseBody` to arrange responses to JSON; whereas `@RestController` does this automatically
+without the need for `@ResponseBody`. 
 
+Below shows where this annotation has been used we've paired it with a specific `@ReqeuestMapping`
+annotation to specify the path for each controller REST API requests. 
+
+![img_5.png](img_5.png)
+![img_4.png](img_4.png)
 
 ### @Configuration
 
