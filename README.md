@@ -114,6 +114,18 @@ Started to implement unit testing at the moment only created a unit test class f
 Not entirely sure if this is how you're meant to test in that I had to create new instances of recipe by adding and populating our database with two recipes then 
 manipulating that. It works for now but can do further research on this.
 
+## Front End Research
+
+Possible options from online:
+
+    - Thymeleaf: this looks interesting in that it is Java based template engine. Supposedly dynamic this might
+        be the way to go because its already Java and online examples don't look too difficult. Downside is that 
+        will it look nice?#
+    - HTMX: Not sure what this is... but seems to be paired with Thymeleaf
+    - Angular / React: this would mean having to learn some JS?... could also maybe use a boiler plate and amend 
+        slightly. Forumns are saying, to build a stand alone Angular / React app that uses the API's from the 
+        back end. Would be cool to play around with front end?
+
 ## Installation
 
 Provide instructions on how to install and run the project locally.
