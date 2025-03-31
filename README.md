@@ -13,7 +13,7 @@ Inteded Functionality:
 
 This project is built using the following technologies:
 
-- **Frontend:** Nothing implemented yet...
+- **Frontend:** JavaScript, React
 - **Backend:** Java, SpringBoot, JUnit, Mockito
 - **Database:** PostgreSQL, Spring Data JPA
 - **DevOps & Deployment:** Not yet implemented
@@ -125,6 +125,11 @@ Possible options from online:
     - Angular / React: this would mean having to learn some JS?... could also maybe use a boiler plate and amend 
         slightly. Forumns are saying, to build a stand alone Angular / React app that uses the API's from the 
         back end. Would be cool to play around with front end?
+
+### Outcome: JS / React
+    - Went with this as it is such a popular front end paired with the SpringBoot framework. Plan is... obviously
+        my favourite approach hands on learn as you go. I do have a plan to follow in terms of brushing up on JS
+        but we'll be learning as we go.
 
 ## Installation
 
