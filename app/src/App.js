@@ -30,11 +30,15 @@ import {useEffect, useState} from "react";
 
   return (
     <div>
-      <ul>
-        {todos.map((todoItem, index) => (
-          <li key={index}>{todoItem.recipeName}: {todoItem.recipeIngredient}</li>
-        ))}
-      </ul>
+      <select value={todos}
+        onChange={(e) => todos(e.target.value)}
+        className='product-dropdown'
+        name='product-dropdown'>
+          <option value="">All</option>
+          {todos.map((item) => (
+            <option value={item.recipeName}>{item.recipeName}</option>
+          ))}
+        </select>
     </div>
   );
 }
