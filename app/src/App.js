@@ -4,6 +4,7 @@ import {useEffect, useState} from "react";
  export default function App() {
   const [isDataFetched, setIsDataFetched] = useState(false);
   const [todos, setTodos] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState("All");
 
   async function getTodos() {
     try {
@@ -28,17 +29,24 @@ import {useEffect, useState} from "react";
     return <p>Loading...</p>;
   }
 
+  if (selectedCategory !== "All") {
+    console.log(selectedCategory);  
+  }
+
   return (
     <div>
       <select value={todos}
-        onChange={(e) => todos(e.target.value)}
+        onChange={(e) => setSelectedCategory(e.target.value)}
         className='product-dropdown'
         name='product-dropdown'>
-          <option value="">All</option>
+          <option value="">Select Recipe</option>
           {todos.map((item) => (
             <option value={item.recipeName}>{item.recipeName}</option>
           ))}
         </select>
+        <button onclick="showTable()">
+          Add to list
+        </button>
     </div>
   );
 }
