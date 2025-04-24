@@ -1,10 +1,16 @@
 import './App.css';
-import {useEffect, useState} from "react";
+import {useEffect, useState, useLayoutEffect} from "react";
  
  export default function App() {
   const [isDataFetched, setIsDataFetched] = useState(false);
   const [todos, setTodos] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("All");
+
+  //dark theme
+  useLayoutEffect(() => {
+    document.body.style.backgroundColor = "black";
+  })
+
 
   async function getTodos() {
     try {
