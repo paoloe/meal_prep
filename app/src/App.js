@@ -5,18 +5,20 @@ import {useEffect, useState, useLayoutEffect} from "react";
   const [isDataFetched, setIsDataFetched] = useState(false);
   const [todos, setTodos] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("All");
+  let recipeId = [];
+  var x = "http://localhost:8080/api/v1/list/getList/";
 
   //dark theme
   useLayoutEffect(() => {
     document.body.style.backgroundColor = "black";
   })
 
-
   async function getTodos() {
     try {
       const res = await fetch(`/api/v1/recipe/getAllRecipe/`);
       const todos = await res.json();
       setTodos(todos);
+      console.log(todos);
     } catch (err) {
       console.error(err);
     }
@@ -36,7 +38,16 @@ import {useEffect, useState, useLayoutEffect} from "react";
   }
 
   if (selectedCategory !== "All") {
-    console.log(selectedCategory);  
+    addRecipe(selectedCategory);
+  }
+
+  function addRecipe(id){
+    if (recipeId.includes(id)){
+      recipeId = recipeId.filter(ids => ids!=id);
+    } else{
+      recipeId.push(id);
+    }
+    console.log(recipeId);
   }
 
   return (
@@ -47,12 +58,9 @@ import {useEffect, useState, useLayoutEffect} from "react";
         name='product-dropdown'>
           <option value="">Select Recipe</option>
           {todos.map((item) => (
-            <option value={item.recipeName}>{item.recipeName}</option>
+            <option value={item.id}>{item.recipeName}</option>
           ))}
         </select>
-        <button onclick="showTable()">
-          Add to list
-        </button>
     </div>
   );
 }

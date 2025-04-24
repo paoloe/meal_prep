@@ -25,9 +25,14 @@ public class RecipeConfig {
                 "Chicken,Garlic,LumpiaWrapper"
             );
 
+            Recipe Caldereta = new Recipe(
+                "Caldereta",
+                "Beef,Garlic,Tomato"
+            );
+
             //invoke repository to save
             repository.saveAll(
-                    List.of(Adobo, Lumpia)
+                    List.of(Adobo, Lumpia, Caldereta)
             );
 
         };
