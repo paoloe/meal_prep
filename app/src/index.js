@@ -10,15 +10,11 @@ import Planner from './components/Planner/Planner.js';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  // <React.StrictMode>
-  //   <App />
-  // </React.StrictMode>
-  <BrowserRouter>
-    <Routes>
-   <Route path="/" element={<App />} />
-   <Route path='planner' element={<Planner />}/>
-   </Routes>
-  </BrowserRouter>,
+  <React.StrictMode>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function
