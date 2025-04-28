@@ -4,14 +4,14 @@ import { useEffect, useState, useLayoutEffect } from "react";
 export default function App() {
   const [isDataFetched, setIsDataFetched] = useState(false);
   const [todos, setTodos] = useState([]);
-  const [recipeId, setRecipeId] = useState("");
+  const [recipeId, setRecipeId] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [api, setApi] = useState("http://localhost:8080/api/v1/list/getList/");
 
   //dark theme
-  useLayoutEffect(() => {
-    document.body.style.backgroundColor = "black";
-  });
+  // useLayoutEffect(() => {
+  //   document.body.style.backgroundColor = "black";
+  // });
 
   async function getTodos() {
     try {
@@ -59,6 +59,8 @@ export default function App() {
       const res = await fetch(str);
       const opt = await res.json();
       console.log(opt);
+      // recipeId = opt;
+      setRecipeId(opt);
     } catch (err) {
       console.log(err);
     }
@@ -73,6 +75,11 @@ export default function App() {
         ))}
       </select>
       <button onClick={getIngredients}>Get Ingredients</button>
+      <ul>
+      {recipeId.map((ingredient) => (
+        <li>{ingredient.item}:{ingredient.quantity}</li>
+      ))}
+      </ul>
     </div>
   );
 }
