@@ -1,17 +1,17 @@
-import './App.css';
-import {useEffect, useState, useLayoutEffect} from "react";
- 
- export default function App() {
+import "./App.css";
+import { useEffect, useState, useLayoutEffect } from "react";
+
+export default function App() {
   const [isDataFetched, setIsDataFetched] = useState(false);
   const [todos, setTodos] = useState([]);
+  const [recipeId, setRecipeId] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("All");
-  let recipeId = [];
   var x = "http://localhost:8080/api/v1/list/getList/";
 
   //dark theme
   useLayoutEffect(() => {
     document.body.style.backgroundColor = "black";
-  })
+  });
 
   async function getTodos() {
     try {
@@ -41,60 +41,20 @@ import {useEffect, useState, useLayoutEffect} from "react";
     addRecipe(selectedCategory);
   }
 
-  function addRecipe(id){
-    if (recipeId.includes(id)){
-      recipeId = recipeId.filter(ids => ids!=id);
-    } else{
-      recipeId.push(id);
-    }
+  function addRecipe(id) {
+    recipeId.push(id);
+    setRecipeId(recipeId);
     console.log(recipeId);
   }
-  
 
   return (
-    // <div>
-    //   <select value={todos}
-    //     onChange={(e) => setSelectedCategory(e.target.value)}
-    //     className='product-dropdown'
-    //     name='product-dropdown'>
-    //       <option value="All">Select Recipe</option>
-    //       {todos.map((item) => (
-    //         <option value={item.id}>{item.recipeName}</option>
-    //       ))}
-    //     </select>
-    // </div>
-
     <div>
-    <select onChange={(e) => setSelectedCategory(e.target.value)}>
-      <option>Select Recipe</option>
+      <select onChange={(e) => addRecipe(e.target.value)}>
+        <option>Monday</option>
         {todos.map((item) => (
-            <option value={item.id}>{item.recipeName}</option>
-          ))}
-    </select>
-    <select>
-      <option>Tuesday</option>
-        {todos.map((result)=>(<option id={result.id}>{result.recipeName}</option>))}    
-    </select>
-    <select>
-      <option>Wednesday</option>
-        {todos.map((result)=>(<option id={result.id}>{result.recipeName}</option>))}    
-    </select>
-    <select>
-      <option>Thursday</option>
-        {todos.map((result)=>(<option id={result.id}>{result.recipeName}</option>))}    
-    </select>
-    <select>
-      <option>Friday</option>
-        {todos.map((result)=>(<option id={result.id}>{result.recipeName}</option>))}    
-    </select>
-    <select>
-      <option>Saturday</option>
-        {todos.map((result)=>(<option id={result.id}>{result.recipeName}</option>))}    
-    </select>
-    <select>
-      <option>Sunday</option>
-        {todos.map((result)=>(<option id={result.id}>{result.recipeName}</option>))}    
-    </select>
+          <option value={item.id}>{item.recipeName}</option>
+        ))}
+      </select>
     </div>
   );
 }
