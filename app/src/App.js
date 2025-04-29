@@ -7,6 +7,15 @@ export default function App() {
   const [recipeId, setRecipeId] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [api, setApi] = useState("http://localhost:8080/api/v1/list/getList/");
+  const daysOfWeek = [
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+    "Sunday",
+  ];
 
   //dark theme
   // useLayoutEffect(() => {
@@ -68,17 +77,21 @@ export default function App() {
 
   return (
     <div>
-      <select onChange={(e) => addRecipe(e.target.value.toString())}>
-        <option>Monday</option>
-        {todos.map((item) => (
-          <option value={item.id}>{item.recipeName}</option>
-        ))}
-      </select>
+      {daysOfWeek.map((day) => (
+        <select onChange={(e) => addRecipe(e.target.value.toString())}>
+          <option value={day}>{day}</option>
+          {todos.map((item) => (
+            <option value={item.id}>{item.recipeName}</option>
+          ))}
+        </select>
+      ))}
       <button onClick={getIngredients}>Get Ingredients</button>
       <ul>
-      {recipeId.map((ingredient) => (
-        <li>{ingredient.item}:{ingredient.quantity}</li>
-      ))}
+        {recipeId.map((ingredient) => (
+          <li>
+            {ingredient.item}:{ingredient.quantity}
+          </li>
+        ))}
       </ul>
     </div>
   );
