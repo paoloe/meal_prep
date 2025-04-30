@@ -1,6 +1,10 @@
 .App {
+  min-height: 100vh;
   text-align: center;
   background-color: #282c34;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .App-header {
@@ -12,4 +16,24 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+.btnGet {
+  background-color: #61dafb;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 30px;
+  margin: 3px;
+  font-size: calc(10px + 2vmin);
+  color: #282c34;
+  cursor: pointer;
+}
+.btnGet:hover {
+  background-color: #21a1f1;
+}
+.btnGet:active {
+  background-color: #1e90ff;
+}
+.btnGet:focus {
+  outline: none;
 }

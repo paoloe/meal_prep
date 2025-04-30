@@ -94,19 +94,25 @@ export default function App() {
     }
   }
 
-  return (
-    <div className="App">
-      <header className="App-header">
-        <p>Weekly Planner</p>
-      </header>
-      {daysOfWeek.map((day) => (
+  const daysOfWeekSelect = () => {
+    return (
+      daysOfWeek.map((day) => (
         <select onChange={(e) => addRecipe(e.target.value.toString())}>
           <option value={day}>{day}</option>
           {todos.map((item) => (
             <option value={item.id}>{item.recipeName}</option>
           ))}
         </select>
-      ))}
+      ))
+      ); 
+    }
+
+  return (
+    <div className="App">
+      <header className="App-header">
+        <p>Weekly Meal Planner</p>
+      </header>
+      {daysOfWeekSelect()}
       <ul>
         {recipeId.map((ingredient) => (
           <li>
@@ -114,7 +120,8 @@ export default function App() {
           </li>
         ))}
       </ul>
-      <button onClick={testPost}>Test Add Recipe</button>
+      <button className="btnGet" onClick={testPost}>Test Add Recipe</button>
+      <button className="btnGet" onClick={getIngredients}>Get Ingredients</button>
     </div>
   );
 }
