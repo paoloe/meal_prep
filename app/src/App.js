@@ -95,7 +95,10 @@ export default function App() {
   }
 
   return (
-    <div>
+    <div className="App">
+      <header className="App-header">
+        <p>Weekly Planner</p>
+      </header>
       {daysOfWeek.map((day) => (
         <select onChange={(e) => addRecipe(e.target.value.toString())}>
           <option value={day}>{day}</option>
@@ -104,7 +107,6 @@ export default function App() {
           ))}
         </select>
       ))}
-      <button onClick={getIngredients}>Get Ingredients</button>
       <ul>
         {recipeId.map((ingredient) => (
           <li>
