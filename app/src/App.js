@@ -1,6 +1,7 @@
 import "./App.css";
 import { useEffect, useState, useLayoutEffect } from "react";
 import Calendar from "./Components/Calendar";
+import Dnd from "./Components/Dnd";
 
 export default function App() {
   const [isDataFetched, setIsDataFetched] = useState(false);
@@ -116,6 +117,7 @@ export default function App() {
         <p>Weekly Meal Planner</p>
       </header> */}
       {/* {daysOfWeekSelect()} */}
+      <Dnd />
       <ul>
         {recipeId.map((ingredient) => (
           <li>
@@ -127,7 +129,6 @@ export default function App() {
       <button className="btnGet" onClick={getIngredients}>Get Ingredients</button>
       <br/>
       <Calendar showDetailsHandle={showDetailsHandle} />
-      {/* {showDetails && <Details data={data} />} */}
     </div>
   );
 }
