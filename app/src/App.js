@@ -1,5 +1,6 @@
 import "./App.css";
 import { useEffect, useState, useLayoutEffect } from "react";
+import Calendar from "./Components/Calendar";
 
 export default function App() {
   const [isDataFetched, setIsDataFetched] = useState(false);
@@ -16,11 +17,13 @@ export default function App() {
     "Saturday",
     "Sunday",
   ];
+  const [showDetails, setShowDetails] = useState(false);
+  const [data, setData] = useState(null);
 
-  //dark theme
-  // useLayoutEffect(() => {
-  //   document.body.style.backgroundColor = "black";
-  // });
+  const showDetailsHandle = (dayStr) => {
+    setData(dayStr);
+    setShowDetails(true);
+  };
 
   async function getTodos() {
     try {
@@ -109,10 +112,10 @@ export default function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
+      {/* <header className="App-header">
         <p>Weekly Meal Planner</p>
-      </header>
-      {daysOfWeekSelect()}
+      </header> */}
+      {/* {daysOfWeekSelect()} */}
       <ul>
         {recipeId.map((ingredient) => (
           <li>
@@ -122,6 +125,9 @@ export default function App() {
       </ul>
       <button className="btnGet" onClick={testPost}>Test Add Recipe</button>
       <button className="btnGet" onClick={getIngredients}>Get Ingredients</button>
+      <br/>
+      <Calendar showDetailsHandle={showDetailsHandle} />
+      {/* {showDetails && <Details data={data} />} */}
     </div>
   );
 }
