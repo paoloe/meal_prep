@@ -62,6 +62,25 @@ export default function App() {
     // console.log(recipeId);
   }
 
+  function testPost(){
+    const data = {
+      recipeName: "TestRecipe",
+      recipeIngredient:"TestIngredient1,TestIngredient2"
+    };
+
+    fetch("/api/v1/recipe/addNewRecipe/", {
+      method: "POST",
+      headers: {
+        'Accept': 'application/json',
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((response) => response.json())
+      .then((data) => console.log(data))
+      .catch((error) => console.error(error));
+  }
+
   async function getIngredients() {
     const str = api.slice(0, -1); //trim the additional comma at the end
     try {
@@ -93,6 +112,7 @@ export default function App() {
           </li>
         ))}
       </ul>
+      <button onClick={testPost}>Test Add Recipe</button>
     </div>
   );
 }

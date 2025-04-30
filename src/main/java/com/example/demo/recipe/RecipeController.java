@@ -37,7 +37,7 @@ public class RecipeController {
 
     //Post is used when we want to add new resources to our system
     // in our case recipes
-    @PostMapping()
+    @PostMapping(path = "/addNewRecipe/", consumes = "application/json")
     public void registerNewrecipe(@RequestBody Recipe recipe) {
         recipeService.addNewRecipe(recipe);
     }
