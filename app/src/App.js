@@ -4,7 +4,6 @@ import Calendar from "./Components/Calendar";
 import Dnd from "./Components/Dnd";
 
 export default function App() {
-  const [isDataFetched, setIsDataFetched] = useState(false);
   const [todos, setTodos] = useState([]);
   const [recipeId, setRecipeId] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("All");
@@ -37,23 +36,6 @@ export default function App() {
     }
   }
 
-  function handleClick() {
-    setIsDataFetched(!isDataFetched);
-    getTodos();
-  }
-
-  if (!isDataFetched) {
-    return <button onClick={handleClick}>Get Todo List</button>;
-  }
-
-  if (todos.length === 0) {
-    return <p>Loading...</p>;
-  }
-
-  if (selectedCategory !== "All") {
-    addRecipe(selectedCategory);
-  }
-
   function addRecipe(id) {
     const y = api;
     const j = id;
@@ -61,9 +43,6 @@ export default function App() {
     const x = y.concat(j, i);
     setApi(x);
     console.log(x);
-    // recipeId.concat(recipeId, id);
-    // setRecipeId(recipeId);
-    // console.log(recipeId);
   }
 
   function testPost(){
@@ -91,7 +70,6 @@ export default function App() {
       const res = await fetch(str);
       const opt = await res.json();
       console.log(opt);
-      // recipeId = opt;
       setRecipeId(opt);
     } catch (err) {
       console.log(err);
