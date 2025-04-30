@@ -2,15 +2,15 @@ import React, { useState } from "react";
 import "./Dnd.css";
 
 export default function Dnd() {
-  const groups = ["group1", "group2", "group3"];
+  const groups = ["Recipe", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
   const [items, setitems] = useState([
     { id: 1, group: groups[0], value: "Chicken" },
     { id: 2, group: groups[0], value: "Monkey" },
     { id: 3, group: groups[0], value: "Duck" },
-    { id: 4, group: groups[1], value: "Rhino" },
-    { id: 5, group: groups[1], value: "Sandwich" },
-    { id: 6, group: groups[2], value: "Ostrich" },
-    { id: 7, group: groups[2], value: "Flamingo" }
+    { id: 4, group: groups[0], value: "Rhino" },
+    { id: 5, group: groups[0], value: "Sandwich" },
+    { id: 6, group: groups[0], value: "Ostrich" },
+    { id: 7, group: groups[0], value: "Flamingo" }
   ]);
 
   const [dragging, setDragging] = useState();
