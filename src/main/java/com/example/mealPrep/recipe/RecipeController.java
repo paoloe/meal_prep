@@ -1,4 +1,4 @@
-package com.example.demo.recipe;
+package com.example.mealPrep.recipe;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

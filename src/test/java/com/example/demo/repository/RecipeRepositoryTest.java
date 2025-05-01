@@ -1,12 +1,13 @@
 package com.example.demo.repository;
 
-import com.example.demo.recipe.Recipe;
-import com.example.demo.recipe.RecipeRepository;
-import com.example.demo.recipe.RecipeService;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+
+import com.example.mealPrep.recipe.Recipe;
+import com.example.mealPrep.recipe.RecipeRepository;
+import com.example.mealPrep.recipe.RecipeService;
 
 import java.util.List;
 import java.util.Optional;

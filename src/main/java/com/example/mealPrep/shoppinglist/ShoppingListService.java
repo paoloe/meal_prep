@@ -1,9 +1,10 @@
-package com.example.demo.shoppinglist;
+package com.example.mealPrep.shoppinglist;
 
-import com.example.demo.recipe.RecipeService;
-import com.example.demo.shoppinglist.ShoppingListRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.example.mealPrep.recipe.RecipeService;
+import com.example.mealPrep.shoppinglist.ShoppingListRepository;
 
 import java.util.ArrayList;
 import java.util.List;

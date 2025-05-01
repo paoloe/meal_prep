@@ -1,9 +1,10 @@
 package com.example.demo.shopping;
 
-import com.example.demo.shoppinglist.ShoppingList;
-import com.example.demo.shoppinglist.ShoppingListRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+
+import com.example.mealPrep.shoppinglist.ShoppingList;
+import com.example.mealPrep.shoppinglist.ShoppingListRepository;
 
 @DataJpaTest
 public class ShoppingListService {

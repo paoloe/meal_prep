@@ -1,4 +1,4 @@
-package com.example.demo.recipe;
+package com.example.mealPrep.recipe;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;

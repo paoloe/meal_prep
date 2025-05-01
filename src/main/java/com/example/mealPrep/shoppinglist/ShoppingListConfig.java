@@ -1,4 +1,4 @@
-package com.example.demo.shoppinglist;
+package com.example.mealPrep.shoppinglist;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;

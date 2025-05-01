@@ -1,4 +1,4 @@
-package com.example.demo.shoppinglist;
+package com.example.mealPrep.shoppinglist;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;

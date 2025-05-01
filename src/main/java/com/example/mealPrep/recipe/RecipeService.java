@@ -1,4 +1,4 @@
-package com.example.demo.recipe;
+package com.example.mealPrep.recipe;
 
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -94,7 +94,7 @@ export default function App() {
       {/* <header className="App-header">
         <p>Weekly Meal Planner</p>
       </header> */}
-      {/* {daysOfWeekSelect()} */}
+      {daysOfWeekSelect()}
       <Dnd />
       <ul>
         {recipeId.map((ingredient) => (
@@ -103,6 +103,7 @@ export default function App() {
           </li>
         ))}
       </ul>
+      <button className="btnGet" onClick={getTodos}>Get Recipes</button>
       <button className="btnGet" onClick={testPost}>Test Add Recipe</button>
       <button className="btnGet" onClick={getIngredients}>Get Ingredients</button>
       <br/>

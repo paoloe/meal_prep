@@ -1,4 +1,4 @@
-package com.example.demo.recipe;
+package com.example.mealPrep.recipe;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
