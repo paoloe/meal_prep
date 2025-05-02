@@ -94,7 +94,7 @@ export default function App() {
       {/* <header className="App-header">
         <p>Weekly Meal Planner</p>
       </header> */}
-      {daysOfWeekSelect()}
+      {/* {daysOfWeekSelect()} */}
       <Dnd />
       <ul>
         {recipeId.map((ingredient) => (
