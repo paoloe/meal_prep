@@ -14,6 +14,7 @@ export default function Dnd() {
 
   const onDragEnter = (e, group) => {
     setitems([...items, (items[dragging.id - 1].group = group)]);
+    console.log(group);
   };
   
   async function getTodos() {
