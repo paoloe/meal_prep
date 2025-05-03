@@ -1,20 +1,20 @@
 import React, { useState } from "react";
 import "./Dnd.css";
-import { set } from "date-fns";
 
 export default function Dnd() {
   const groups = ["Recipe", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
   const [items, setitems] = useState([]);
   const [dragging, setDragging] = useState();
   const [todos, setTodos] = useState([]);
+  const [api, setApi] = useState("http://localhost:8080/api/v1/list/getList/");
 
   const handleDragStart = (e) => {
     setDragging(e.target);
   };
 
   const onDragEnter = (e, group) => {
+    // "...items" is the spread operator, it creates a shallow copy of the items array - cool.
     setitems([...items, (items[dragging.id - 1].group = group)]);
-    console.log(group);
   };
   
   async function getTodos() {
@@ -33,8 +33,14 @@ export default function Dnd() {
     setitems(todos.map((todo) => {
       return { id: todo.id, group: groups[0], value: todo.recipeName };
     }));
-    console.log(items);
+    // console.log(items);
   }
+
+  const onTestGet = () => {
+    console.log(items);
+    // setApi(api.concat(items.map((item) => item.id)));
+    // console.log(api)
+  } 
 
   return (
     <div className="groups">
@@ -64,6 +70,7 @@ export default function Dnd() {
       ))}
       <div className="title">
         <button onClick={onLoad}>Load</button>
+        <button onClick={onTestGet}>Test Get</button>
       </div>
     </div>
   );
