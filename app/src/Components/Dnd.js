@@ -60,8 +60,16 @@ export default function Dnd() {
 
   const onTestGet = () => {
     console.log(items);
-    // setApi(api.concat(items.map((item) => item.id)));
-    // console.log(api)
+    // Map through items to extract their IDs and join them with commas
+    // This will create a string like "1,2,3" from the IDs of the items
+    // ".join" automatically adds a comma between the id's but not at the end - brilliant
+    const ids = items.map((item) => item.id).join(",");
+
+    // Update the api state with the concatenated IDs
+    setApi(`http://localhost:8080/api/v1/list/getList/${ids}`);
+
+    //show the api in console
+    console.log(`Updated API: ${api}`);
   };
 
   return (
