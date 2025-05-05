@@ -16,6 +16,7 @@ export default function Dnd() {
   const [dragging, setDragging] = useState();
   const [todos, setTodos] = useState([]);
   const [api, setApi] = useState("http://localhost:8080/api/v1/list/getList/");
+  const [ingredients, setIngredients] = useState([]);
 
   const handleDragStart = (e) => {
     setDragging(e.target);
@@ -48,6 +49,17 @@ export default function Dnd() {
     }
   }
 
+  async function getIngredients() {
+    try {
+      const res = await fetch(api);
+      const ingredients = await res.json();
+      setIngredients(ingredients);
+      console.log(ingredients);
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
   const onLoad = () => {
     getTodos();
     setitems(
@@ -58,7 +70,7 @@ export default function Dnd() {
     // console.log(items);
   };
 
-  const onTestGet = () => {
+  const updateApiWithIds = () => {
     console.log(items);
     // Map through items to extract their IDs and join them with commas
     // This will create a string like "1,2,3" from the IDs of the items
@@ -100,7 +112,8 @@ export default function Dnd() {
       ))}
       <div className="title">
         <button onClick={onLoad}>Load</button>
-        <button onClick={onTestGet}>Test Get</button>
+        <button onClick={updateApiWithIds}>Test Get</button>
+        <button onClick={getIngredients}>Get Ingredients</button>
       </div>
     </div>
   );
