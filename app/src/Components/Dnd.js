@@ -16,14 +16,15 @@ export default function Dnd() {
 
   const handleDragEnd = (e) => {
     console.log(e);
-    // setitems((prevItems) => [
-    //   ...prevItems,
-    //   {
-    //     id: prevItems.length + 1, // Generate a new unique ID
-    //     group: null, // Default group
-    //     value: thing.recipeName, // Match the dragged item's value
-    //   },
-    // ]);
+    setitems((prevItems) => [
+      ...prevItems,
+      {
+        id: prevItems.length + 1, // Generate a new unique ID
+        group: "Mon", // Default group
+        value: e.recipeName, // Match the dragged item's value
+      },
+    ]);
+    console.log(items);
   };
 
   const onDragEnter = (e, group) => {
@@ -100,7 +101,7 @@ export default function Dnd() {
               className="thing"
               draggable
               onDragStart={(e) => handleDragStart(e)}
-              onDragEnd={(e) => handleDragEnd(e)}
+              onDragEnd={() => handleDragEnd(thing)}
             >
               {thing.recipeName}
             </div>
