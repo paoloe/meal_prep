@@ -76,38 +76,9 @@ export default function App() {
     }
   }
 
-  const daysOfWeekSelect = () => {
-    return (
-      daysOfWeek.map((day) => (
-        <select onChange={(e) => addRecipe(e.target.value.toString())}>
-          <option value={day}>{day}</option>
-          {todos.map((item) => (
-            <option value={item.id}>{item.recipeName}</option>
-          ))}
-        </select>
-      ))
-      ); 
-    }
-
   return (
     <div className="App">
-      {/* <header className="App-header">
-        <p>Weekly Meal Planner</p>
-      </header> */}
-      {/* {daysOfWeekSelect()} */}
       <Dnd />
-      <ul>
-        {recipeId.map((ingredient) => (
-          <li>
-            {ingredient.item}:{ingredient.quantity}
-          </li>
-        ))}
-      </ul>
-      <button className="btnGet" onClick={getTodos}>Get Recipes</button>
-      <button className="btnGet" onClick={testPost}>Test Add Recipe</button>
-      <button className="btnGet" onClick={getIngredients}>Get Ingredients</button>
-      <br/>
-      <Calendar showDetailsHandle={showDetailsHandle} />
     </div>
   );
 }

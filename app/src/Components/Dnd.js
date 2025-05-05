@@ -2,17 +2,9 @@ import React, { useState } from "react";
 import "./Dnd.css";
 
 export default function Dnd() {
-  const groups = [
-    "Recipe",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-    "Sunday",
-  ];
+  const groups = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
   const [items, setitems] = useState([]);
+  const [recipes, setRecipes] = useState([]);
   const [dragging, setDragging] = useState();
   const [todos, setTodos] = useState([]);
   const [api, setApi] = useState("http://localhost:8080/api/v1/list/getList/");
@@ -20,6 +12,18 @@ export default function Dnd() {
 
   const handleDragStart = (e) => {
     setDragging(e.target);
+  };
+
+  const handleDragEnd = (e) => {
+    console.log(e);
+    // setitems((prevItems) => [
+    //   ...prevItems,
+    //   {
+    //     id: prevItems.length + 1, // Generate a new unique ID
+    //     group: null, // Default group
+    //     value: thing.recipeName, // Match the dragged item's value
+    //   },
+    // ]);
   };
 
   const onDragEnter = (e, group) => {
@@ -43,6 +47,7 @@ export default function Dnd() {
       const res = await fetch(`/api/v1/recipe/getAllRecipe/`);
       const todos = await res.json();
       setTodos(todos);
+      setRecipes(todos);
       console.log(todos);
     } catch (err) {
       console.error(err);
@@ -67,7 +72,6 @@ export default function Dnd() {
         return { id: todo.id, group: groups[0], value: todo.recipeName };
       })
     );
-    // console.log(items);
   };
 
   const updateApiWithIds = () => {
@@ -86,6 +90,23 @@ export default function Dnd() {
 
   return (
     <div className="groups">
+      <div className="sidebar">
+        <h1 className="title">Recipe</h1>
+        <div>
+          {recipes.map((thing) => (
+            <div
+              key={thing.id}
+              id={thing.id}
+              className="thing"
+              draggable
+              onDragStart={(e) => handleDragStart(e)}
+              onDragEnd={(e) => handleDragEnd(e)}
+            >
+              {thing.recipeName}
+            </div>
+          ))}
+        </div>
+      </div>
       {groups.map((group) => (
         <div
           className="group"
@@ -110,11 +131,18 @@ export default function Dnd() {
           </div>
         </div>
       ))}
-      <div className="title">
-        <button onClick={onLoad}>Load</button>
-        <button onClick={updateApiWithIds}>Test Get</button>
-        <button onClick={getIngredients}>Get Ingredients</button>
+      <div className="buttons">
+        <button className="btn" onClick={onLoad}>
+          Load
+        </button>
+        <button className="btn" onClick={updateApiWithIds}>
+          Test Get
+        </button>
+        <button className="btn" onClick={getIngredients}>
+          Get Ingredients
+        </button>
       </div>
+      <br />
     </div>
   );
 }

@@ -1,10 +1,14 @@
 .groups {
     display: flex;
     margin: 20px;
+    margin-left: 260px;
     padding: 20px;
     flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
   
     .group {
+      width: 150px;
       margin: 20px;
       padding: 20px;
       min-height: 16rem;
@@ -22,8 +26,41 @@
       padding: 20px;
       background-color: darkgreen
     }
+
+    .btn {
+      background-color: #61dafb;
+      border: none;
+      border-radius: 10px;
+      padding: 10px 30px;
+      margin: 3px;
+      font-size: calc(10px + 2vmin);
+      color: #282c34;
+      cursor: pointer;
+    }
+  
+    .btn:hover {
+      background-color: #21a1f1;
+    }
+    .btn:active {
+      background-color: #1e90ff;
+    }
+    .btn:focus {
+      outline: none;
+    }
+
+
   }
   
+  .sidebar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 300px;
+    padding: 10px 14px;
+    background-color: red;
+  }
+
   .thing {
     background-color: yellow;
     color: blue;
@@ -31,3 +68,4 @@
     padding: 5px;
     border: 2px green;
   }
+
